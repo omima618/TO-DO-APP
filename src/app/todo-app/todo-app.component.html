@@ -1,0 +1,6 @@
+<section class="to-do-app w-md-75 w-100 mx-auto py-md-5 py-2 my-3">
+  <div class="container">
+    <app-todo-form (triggerChildChanges)="triggerParentChanges($event)"></app-todo-form>
+    <app-todo-list [tasksList]="tasksList"></app-todo-list>
+  </div>
+</section>

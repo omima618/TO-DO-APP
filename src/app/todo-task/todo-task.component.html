@@ -1,0 +1,16 @@
+<div class="card shadow-sm">
+  <div class="card-body row align-items-center">
+    <h4 class="card-title col-12 col-sm">{{task}}</h4>
+    <div class="col-12 col-sm d-flex justify-content-end">
+      <div *ngIf="isDone; then UNDO else DONE"></div>
+      <ng-template #DONE>
+        <button (click)="doneHandler()" class="btn btn-outline-success card-link">Done</button>
+      </ng-template>
+      <ng-template #UNDO>
+        <button (click)="undoHandler()"
+          class="btn btn-outline-dark card-link text-decoration-line-through">Undo</button>
+      </ng-template>
+      <button (click)="deleteHandler()" class="btn btn-outline-danger card-link ms-2">Delete</button>
+    </div>
+  </div>
+</div>

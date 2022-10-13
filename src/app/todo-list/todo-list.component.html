@@ -1,0 +1,20 @@
+<div class="container p-5 shadow rounded-4">
+  <h2 class=" text-center border-bottom mx-auto pb-3 mb-5">Let's Get Some Work Done</h2>
+  <div class="d-flex align-items-center px-1 mb-3">
+    <div *ngIf="tasksList.length != 0; then MANY else ZERO"></div>
+    <ng-template #MANY>
+      <span class=" text-muted fw-bold fs-6" *ngIf=" tasksList.length> 1">Total Tasks : {{tasksList.length}}
+        Tasks</span>
+      <span class=" text-muted fw-bold fs-6" *ngIf=" tasksList.length == 1">Total Tasks : {{tasksList.length}}
+        Task</span>
+    </ng-template>
+    <ng-template #ZERO>
+      <span class=" text-danger fw-bold fs-6">You didn't add any task yet</span>
+    </ng-template>
+    <button (click)="deleteAll()" class=" btn btn-danger ms-auto d-block w-auto">Clear All</button>
+  </div>
+  <div class="row">
+    <app-todo-task class="col-lg-6 col-12 mb-3" *ngFor="let task of tasksList" [task]="task"
+      (trrigerTaskChanges)="triggrtListChanges($event)"></app-todo-task>
+  </div>
+</div>
